@@ -5,6 +5,7 @@ Exercise to create a STDIN-based "drawing" tool
 Just run ruby pixel.rb
 
 Commands:
+
 I X Y       - Initialize a grid of size X,Y
 
 C           - Clear the grid
