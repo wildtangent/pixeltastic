@@ -1,8 +1,8 @@
-Pixeltastic
+# Pixeltastic
 
 Exercise to create a STDIN-based "drawing" tool
 
-Just run 
+## Just run 
 
 ```
 ruby pixel.rb
