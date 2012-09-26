@@ -12,6 +12,9 @@ class Command
   
   # Process the command that was entered
   def process(command)
+    
+    return unless document_created?(command)
+    
     case command.first
     when "I"
       # Initialize the document M,N with white pixels
@@ -45,6 +48,19 @@ class Command
       Logger.info "Terminating session"
       exit 0
       
+    else
+      Logger.warn "Invalid command"
+      
     end
   end
+  
+  # Check if we have a document yet, or if the current command is going to create one
+  def document_created?(command)
+    if @document.nil? && !["X","I"].include?(command.first)
+      Logger.warn("No document created. Start by running I X Y")
+      return false
+    end
+    true
+  end
+  
 end

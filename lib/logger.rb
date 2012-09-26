@@ -1,7 +1,7 @@
 # Log something
 class Logger
   
-  @@level = 0
+  @@level = 1
   
   def self.level=(level)
     @@level = level
@@ -10,9 +10,13 @@ class Logger
   def self.info(message)
     log(message) if @@level > 0
   end
+
+  def self.warn(message)
+    log(message) if @@level > 1
+  end
   
   def self.debug(message)
-    log(message) if @@level > 1
+    log(message) if @@level > 2
   end
   
   def self.log(message)

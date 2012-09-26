@@ -7,7 +7,7 @@ class Matrix
   
   # Flood fill the matrix with adjacent colours
   # Similar to paint or minesweeper logic!
-  def flood_fill(x, y, target,replacement)
+  def flood_fill(x, y, target, replacement)
     return if invalid?(x,y)    
     return if self.element(y, x) != target
     return if self.element(y, x) == replacement
