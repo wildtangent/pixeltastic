@@ -26,3 +26,14 @@ X           - Terminate the application
 
 The example code will run some samples, then drop you at the command prompt. Enter combinations as above to draw stuff.
 
+#### References:
+
+* Code concept for flood fill [Wikipedia](http://en.wikipedia.org/wiki/Flood_fill)
+* [Ruby example](http://www.ruby-forum.com/topic/184567#807275) 
+* [Minesweeper](http://www.acsu.buffalo.edu/~johnnoon/programming/sweeper_2.pdf)
+* [Ruby responding to command line](http://ubuntuforums.org/showthread.php?t=1403966)
+
+#### Notes
+
+Flood fill code might eventually stack overflow with a larger matrix.
+http://cboard.cprogramming.com/brief-history-cprogramming-com/12855-floodfill-stack-overflow.html
