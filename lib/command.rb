@@ -1,3 +1,5 @@
+require 'logger'
+
 class Command
   
   attr_accessor :command, :document
@@ -32,10 +34,7 @@ class Command
       @document.fill_row(command[1], command[2], command[3], command[4])
       
     when "F"
-      # Fill region X,Y (R) with colour C
-      x = command[1].to_i-1
-      y = command[2].to_i-1
-      document.flood_fill(x, y, @document.matrix.element(y, x), command[3])
+      document.fill_region(command[1], command[2], command[3])
       
     when "S"
       # Show contents

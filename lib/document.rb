@@ -1,16 +1,16 @@
+require 'logger'
 require 'matrix'
-
 # Build a document
 class Document
-  
-  
+    
   attr_accessor :x, :y, :matrix
 
-  # Initialize document matrix
+  # Initialize document matrix, and fill it with O
   def initialize(x, y)
     @x = x.to_i
     @y = y.to_i
     clear
+    fill_region(0,0,"O")
   end
   
   # Colour a single pixel
@@ -32,14 +32,16 @@ class Document
     x1.upto(x2) do |i|
       colour(i,y,colour)
     end
-  end 
-
-  # Flood fill the region starting with X,Y with colour
-  # Recursive flood fill might lead to stack overflow...
-  def flood_fill(x, y, target_colour, replacement_colour)
-    @matrix.flood_fill(x,y, target_colour, replacement_colour)
-  end  
+  end
   
+  # Flood fill a region with colour
+  def fill_region(x, y, colour)
+    x = xform(x)
+    y = xform(y)
+    target_colour = @matrix.element(y, x)
+    @matrix.flood_fill(x, y, target_colour, colour)
+  end
+    
   # Print the document
   def print
     @matrix.to_a.each do |y|

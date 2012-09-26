@@ -11,6 +11,7 @@ Logger.log("\n")
 Input.run("I 5 6", "L 2 3 C", "F 3 3 J", "V 2 3 4 W", "H 3 4 2 Z", "S")
 
 # Run the command line app
+Logger.info("Enter a commmand:")
 Input.new
 
 
