@@ -2,10 +2,12 @@
 
 Exercise to create a STDIN-based "drawing" tool
 
-## Just run 
+**Requires Ruby 1.9.3**
+
+### Just run 
 
 ```
-ruby pixel.rb
+ruby pixeltastic.rb
 ```
 
 Commands:
@@ -19,3 +21,8 @@ F X Y C     - Fill a region defined as X,Y expanded to include adjacent pixels o
 S           - Show the contents of the grid
 X           - Terminate the application
 ```
+
+### Doing more
+
+The example code will run some samples, then drop you at the command prompt. Enter combinations as above to draw stuff.
+
