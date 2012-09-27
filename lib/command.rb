@@ -18,6 +18,7 @@ class Command
     case command.first
     when "I"
       # Initialize the document M,N with white pixels
+      return unless valid_command?(command, 2)
       @document = Document.new(command[1], command[2])
 
     when "C"
@@ -26,17 +27,21 @@ class Command
       
     when "L"
       # Colour pixel X,Y with colour C
+      return unless valid_command?(command, 3)
       @document.colour(command[1], command[2], command[3])
     
     when "V"
       # Draw vertical segment X, Y1,Y2, C
+      return unless valid_command?(command, 4)
       @document.fill_column(command[1], command[2], command[3], command[4])
       
     when "H"
       # Draw horizontal segment X1,X2,Y,C
+      return unless valid_command?(command, 4)
       @document.fill_row(command[1], command[2], command[3], command[4])
       
     when "F"
+      return unless valid_command?(command, 3)
       document.fill_region(command[1], command[2], command[3])
       
     when "S"
@@ -61,6 +66,12 @@ class Command
       return false
     end
     true
+  end
+  
+  def valid_command?(command, size)
+    return true if command.length == size+1
+    Logger.warn("Invalid command")
+    return false
   end
   
 end
