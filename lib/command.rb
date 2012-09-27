@@ -69,7 +69,7 @@ class Command
   end
   
   def valid_command?(command, size)
-    return true if command.length == size+1
+    return true if command.size == size+1
     Logger.warn("Invalid command")
     return false
   end
