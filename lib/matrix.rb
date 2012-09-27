@@ -28,4 +28,5 @@ class Matrix
   def invalid?(x, y)
     !valid?(x, y)
   end
+  
 end
