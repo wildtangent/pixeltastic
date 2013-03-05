@@ -25,6 +25,12 @@ class Document
     @matrix[y, x] = colour
   end
 
+  # Only apply colour if it is not overlapping another one
+  def conditional_colour(x, y, colour, *allowed_colours)
+    return unless allowed_colours.include?(@matrix[xform(y), xform(x)])
+    colour(x, y, colour)  
+  end
+
   # Fill a column X, Y1, Y2 with Colour
   def fill_column(x, y1, y2, colour)
     return if invalid?(x,y1) || invalid?(x,y2)
@@ -49,7 +55,24 @@ class Document
     target_colour = @matrix.element(y, x)
     @matrix.flood_fill(x, y, target_colour, colour)
   end
-    
+  
+  # Gradient fill with a colour 
+  def gradient_fill_region(x, y, a, b, c)
+    return if invalid?(x, y)
+    fill_region(x, y, c)
+    colour(x, y, a)
+    x = x.to_i
+    y = y.to_i
+    conditional_colour(x-1, y, b, c)
+    conditional_colour(x+1, y, b, c)
+    conditional_colour(x, y-1, b, c)
+    conditional_colour(x, y+1, b, c)
+    conditional_colour(x-1, y-1, b, c)
+    conditional_colour(x+1, y-1, b, c)
+    conditional_colour(x-1, y+1, b, c)
+    conditional_colour(x+1, y+1, b, c)    
+  end
+      
   # Print the document
   def print
     @matrix.to_a.each do |y|

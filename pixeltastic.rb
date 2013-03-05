@@ -5,11 +5,12 @@ require './lib/input'
 require './lib/matrix'
 
 # Run test scripts
-Logger.level = 3
-Input.run("I 5 6", "L 2 3 C", "S")
-Logger.log("\n")
-Input.run("I 5 6", "L 2 3 C", "F 3 3 J", "V 2 3 4 W", "H 3 4 2 Z", "S")
+# Logger.level = 3
+# Input.run("I 5 6", "L 2 3 C", "S")
+# Logger.log("\n")
+#Input.run("I 5 6", "L 2 3 C", "F 3 3 J", "V 2 3 4 W", "H 3 4 2 Z", "S")
+Input.run("I 5 5", "H 1 5 1 X", "G 3 2 A B C", "S")
 
 # Run the command line app
-Logger.info("Enter a commmand:")
-Input.new
+#Logger.info("Enter a commmand:")
+#Input.new

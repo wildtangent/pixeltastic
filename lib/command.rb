@@ -52,7 +52,10 @@ class Command
       # Terminate session
       Logger.info "Terminating session"
       exit 0
-      
+    
+    when "G"
+      Logger.info "Doing a gradient"
+      @document.gradient_fill_region(command[1], command[2], command[3], command[4], command[5])
     else
       Logger.warn "Invalid command"
       
